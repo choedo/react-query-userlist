@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { QueryClient, QueryClientProvider } from "react-query";
+import RQ from "./components/RQ";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* 리액트 쿼리 초기 설정 */}
+      <QueryClientProvider client={queryClient}>
+        <RQ />
+      </QueryClientProvider>
     </div>
   );
 }
